@@ -1,0 +1,28 @@
+doctype html
+html(lang="es")
+	head
+		title VRIN UNPRG
+		include includes/head
+	body
+		//Menú Mobile
+		include includes/mobile-menu
+
+		.row.premenu
+			.col.s1
+			.col.s3
+				img(src="../img/logo.jpg")
+			.col.s7
+				p.right UNIVERSIDAD NACIONAL PEDRO RUIZ GALLO
+			.col.s1
+		//Menú
+		header.navbar
+			include includes/menu
+
+		//Cuerpo
+		.row.cuerpo
+			a.btn-floating.btn-large.waves-effect.red(onclick="agregar()")
+				i.material-icons add
+			
+		
+		footer.grey
+			include includes/footer
