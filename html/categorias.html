@@ -18,17 +18,18 @@
     <!--Menú Mobile-->
     <!--MENÚ MOBILE-->
     <ul class="collapsible side-nav" id="mobile-menu" data-collapsible="accordion">
-      <li><a class="collapsible-header waves-effect" href="unidades.html">UNIDADES</a></li>
+      <li><a class="collapsible-header waves-effect" href="unidades.html">INICIO	</a></li>
       <div class="divider"></div>
-      <li><a class="collapsible-header waves-effect" href="proveedores.html">PROVEEDORES</a></li>
+      <li>
+        <div class="collapsible-header waves-effect" href="proveedores.html">OFICINAS</div>
+        <div class="collapsible-body waves-effect">
+          <li><a href="oficina 1">Oficina 1</a></li>
+        </div>
+      </li>
       <div class="divider"></div>
-      <li><a class="collapsible-header waves-effect" href="pedidos.html">PEDIDOS</a></li>
+      <li><a class="collapsible-header waves-effect" href="pedidos.html">PROYECTOS</a></li>
       <div class="divider"></div>
-      <li><a class="collapsible-header waves-effect" href="categorias.html">CATEGORIAS</a></li>
-      <div class="divider"></div>
-      <li><a class="collapsible-header waves-effect" href="marcas.html">MARCAS</a></li>
-      <div class="divider"></div>
-      <li><a class="collapsible-header waves-effect" href="productos.html">PRODUCTOS</a></li>
+      <li><a class="collapsible-header waves-effect" href="categorias.html">PASANTIAS</a></li>
       <div class="divider"></div>
     </ul>
     <!--Menú-->
@@ -36,14 +37,27 @@
       <!--MENÚ WEB-->
       <nav class="nav-wrapper"><a class="button-collapse left" data-activates="mobile-menu" href="#"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down" id="nav-mobile">
-          <li><a class="waves-effect" href="unidades.html">UNIDADES</a></li>
-          <li><a class="waves-effect" href="proveedores.html">PROVEEDORES</a></li>
-          <li><a class="waves-effect" href="pedidos.html">PEDIDOS</a></li>
-          <li><a class="waves-effect" href="categorias.html">CATEGORIAS</a></li>
-          <li><a class="waves-effect" href="marcas.html">MARCAS</a></li>
-          <li><a class="waves-effect" href="productos.html">PRODUCTOS</a></li>
+          <li><a class="waves-effect" href="index.html">INICIO</a></li>
+          <li><a class="waves-effect dropdown-button" data-activates="oficinas">OFICINAS<i class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a class="waves-effect dropdown-button" data-activates="proyectos">PROYECTOS<i class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a class="waves-effect" href="pasantias.html">PASANTIAS</a></li>
         </ul>
       </nav>
+      <ul class="dropdown-content" id="oficinas">
+        <li><a href="">Instituto de Biotecnología</a></li>
+        <li><a href="">Instituto de Economía y Desarrollo</a></li>
+        <li><a href="">Instituto de Investigación de Economia y Sociedad</a></li>
+        <li><a href="">Oficina General Editorial Universitaria</a></li>
+        <li><a href="">Oficina General Gestión del Conocimiento</a></li>
+        <li><a href="">Oficina General Incubadora de Empresas</a></li>
+        <li><a href="">Oficina General Promoción de las Investigaciones</a></li>
+      </ul>
+      <ul class="dropdown-content" id="proyectos">
+        <li><a href="">Unidisciplinarios</a></li>
+        <li><a href="">Multidisciplinarios</a></li>
+        <li><a href="">Semilleros de Investigación</a></li>
+        <li><a href="">Financiamiento</a></li>
+      </ul>
     </header>
     <!--Cuerpo-->
     <div class="row cuerpo"><a class="btn-floating btn-large waves-effect red" onclick="agregar()"><i class="material-icons">add</i></a>

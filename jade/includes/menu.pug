@@ -4,14 +4,37 @@ nav.nav-wrapper
 		i.material-icons menu
 	ul#nav-mobile.right.hide-on-med-and-down
 		li
-			a(href="unidades.html").waves-effect UNIDADES
+			a(href="index.html").waves-effect INICIO
 		li
-			a(href="proveedores.html").waves-effect PROVEEDORES
+			a.waves-effect.dropdown-button(data-activates='oficinas') OFICINAS
+				i.material-icons.right arrow_drop_down
 		li
-			a(href="pedidos.html").waves-effect PEDIDOS
+			a.waves-effect.dropdown-button(data-activates='proyectos') PROYECTOS
+				i.material-icons.right arrow_drop_down
 		li
-			a(href="categorias.html").waves-effect CATEGORIAS
-		li
-			a(href="marcas.html").waves-effect MARCAS
-		li
-			a(href="productos.html").waves-effect PRODUCTOS
+			a(href="pasantias.html").waves-effect PASANTIAS
+ul#oficinas.dropdown-content
+	li
+		a(href="") Instituto de Biotecnología
+	li
+		a(href="") Instituto de Economía y Desarrollo
+	li
+		a(href="") Instituto de Investigación de Economia y Sociedad
+	li
+		a(href="") Oficina General Editorial Universitaria
+	li
+		a(href="") Oficina General Gestión del Conocimiento
+	li
+		a(href="") Oficina General Incubadora de Empresas
+	li
+		a(href="") Oficina General Promoción de las Investigaciones
+
+ul#proyectos.dropdown-content
+	li
+		a(href="") Unidisciplinarios
+	li
+		a(href="") Multidisciplinarios
+	li
+		a(href="") Semilleros de Investigación
+	li
+		a(href="") Financiamiento
