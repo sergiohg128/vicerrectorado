@@ -112,7 +112,11 @@ input[type=date], input[type=time] {
   padding: 0 !important; }
 
 .premenu {
-  background: red; }
+  padding: 3px 0;
+  margin: 0;
+  font-weight: bold; }
+  .premenu img {
+    height: 50px !important; }
 
-img {
-  display: none; }
+nav i {
+  color: red; }

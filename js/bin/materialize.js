@@ -540,7 +540,8 @@ if (jQuery) {
       gutter: 0, // Spacing from edge
       belowOrigin: false,
       alignment: 'left',
-      stopPropagation: false
+      stopPropagation: false,
+      top2 : 0
     };
 
     // Open dropdown.
@@ -584,6 +585,8 @@ if (jQuery) {
           curr_options.alignment = origin.data('alignment');
         if (origin.data('stoppropagation') !== undefined)
           curr_options.stopPropagation = origin.data('stoppropagation');
+      if (origin.data('top2') !== undefined)
+          curr_options.stopPropagation = origin.data('top2');
       }
 
       updateOptions();
@@ -682,7 +685,7 @@ if (jQuery) {
         // Position dropdown
         activates.css({
           position: 'absolute',
-          top: origin.position().top + verticalOffset + scrollYOffset,
+          top: origin.position().top + verticalOffset + scrollYOffset - curr_options.top2,
           left: leftPosition + scrollXOffset
         });
 
