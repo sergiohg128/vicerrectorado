@@ -11,6 +11,7 @@
     <script src="js/bin/materialize.js"></script>
     <script src="js/select2.full.js"></script>
     <script src="js/scripts.js"></script>
+    <link rel="shortcut icon" href="img/logo.ico" />
   </head>
   <body>
     <div id="fb-root"></div>
