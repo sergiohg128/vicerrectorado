@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.logical.LogicalDesign>
+   <object objectType="Entity" objectID="6EDD27F0-D302-767D-7663-DB05858B5B67" name="OFICINA" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Entity" propertyParentId="36F0894A-9609-3871-6A53-CDC52C685153" propertySourceId="" propertyTargetId=""/>
+   <object objectType="Entity" objectID="A4DF419A-A9FE-DA89-CD7D-7FCF146F0F20" name="PUBLICACION" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Entity" propertyParentId="36F0894A-9609-3871-6A53-CDC52C685153" propertySourceId="" propertyTargetId=""/>
+   <object objectType="Entity" objectID="5043311D-9AE0-1CAF-66C0-4CAE526A5F2D" name="SLIDER" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Entity" propertyParentId="36F0894A-9609-3871-6A53-CDC52C685153" propertySourceId="" propertyTargetId=""/>
+   <object objectType="Relation" objectID="94A063E3-303B-7072-863A-5C45BA012D3D" name="Relation_1" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Relation" propertyParentId="36F0894A-9609-3871-6A53-CDC52C685153" propertySourceId="6EDD27F0-D302-767D-7663-DB05858B5B67" propertyTargetId="5043311D-9AE0-1CAF-66C0-4CAE526A5F2D"/>
+   <object objectType="Relation" objectID="D04F3900-1AAB-475E-0D33-D2C53B33A5FB" name="Relation_2" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Relation" propertyParentId="36F0894A-9609-3871-6A53-CDC52C685153" propertySourceId="6EDD27F0-D302-767D-7663-DB05858B5B67" propertyTargetId="A4DF419A-A9FE-DA89-CD7D-7FCF146F0F20"/>
+</oracle.dbtools.crest.model.design.logical.LogicalDesign>

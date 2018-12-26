@@ -1,0 +1,117 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A4DF419A-A9FE-DA89-CD7D-7FCF146F0F20" name="PUBLICACION">
+<createdBy>SERGIO</createdBy>
+<createdTime>2018-12-26 03:48:21 UTC</createdTime>
+<ownerDesignName>diagrama</ownerDesignName>
+<engineerTo>
+<item key="CDC8B78E-02AA-0009-ABC3-BE6D0DE0E739" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="3E4C9927-B2F0-C5A9-13EB-BAAA7664B83B">
+<createdBy>SERGIO</createdBy>
+<createdTime>2018-12-26 04:56:36 UTC</createdTime>
+<ownerDesignName>diagrama</ownerDesignName>
+<engineerTo>
+<item key="CDC8B78E-02AA-0009-ABC3-BE6D0DE0E739" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="titulo" id="0EBD7DE9-E7AC-48E8-C720-83E756515397">
+<createdBy>SERGIO</createdBy>
+<createdTime>2018-12-26 04:56:40 UTC</createdTime>
+<ownerDesignName>diagrama</ownerDesignName>
+<engineerTo>
+<item key="CDC8B78E-02AA-0009-ABC3-BE6D0DE0E739" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="corta" id="45C7D8CB-1503-490F-DA14-A7CB77D171C0">
+<createdBy>SERGIO</createdBy>
+<createdTime>2018-12-26 04:56:43 UTC</createdTime>
+<ownerDesignName>diagrama</ownerDesignName>
+<engineerTo>
+<item key="CDC8B78E-02AA-0009-ABC3-BE6D0DE0E739" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="larga" id="3A5BB129-FA19-6DAD-DE0F-D2C764137546">
+<createdBy>SERGIO</createdBy>
+<createdTime>2018-12-26 04:56:51 UTC</createdTime>
+<ownerDesignName>diagrama</ownerDesignName>
+<engineerTo>
+<item key="CDC8B78E-02AA-0009-ABC3-BE6D0DE0E739" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tipo" id="66A93E3C-7D85-C27B-E8BA-45282904D068">
+<createdBy>SERGIO</createdBy>
+<createdTime>2018-12-26 04:57:40 UTC</createdTime>
+<ownerDesignName>diagrama</ownerDesignName>
+<engineerTo>
+<item key="CDC8B78E-02AA-0009-ABC3-BE6D0DE0E739" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="imagen" id="6868454C-C202-DB7D-AB55-F1C024EBA5B1">
+<createdBy>SERGIO</createdBy>
+<createdTime>2018-12-26 04:56:55 UTC</createdTime>
+<ownerDesignName>diagrama</ownerDesignName>
+<engineerTo>
+<item key="CDC8B78E-02AA-0009-ABC3-BE6D0DE0E739" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="archivo" id="CEE424F0-69F6-65DB-E59D-123FEDEA5746">
+<createdBy>SERGIO</createdBy>
+<createdTime>2018-12-26 04:57:27 UTC</createdTime>
+<ownerDesignName>diagrama</ownerDesignName>
+<engineerTo>
+<item key="CDC8B78E-02AA-0009-ABC3-BE6D0DE0E739" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id1" id="382017CD-1784-6658-7F71-945BF8B754D3">
+<createdBy>SERGIO</createdBy>
+<createdTime>2018-12-26 04:59:52 UTC</createdTime>
+<generatorID>D04F3900-1AAB-475E-0D33-D2C53B33A5FB</generatorID>
+<ownerDesignName>diagrama</ownerDesignName>
+<engineerTo>
+<item key="CDC8B78E-02AA-0009-ABC3-BE6D0DE0E739" value="true"/>
+</engineerTo>
+<referedAttribute>4EF4F7CF-2D14-392E-55C8-899FF5EAD930</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8C477CE3-8C83-09F8-DEFE-E9B5E075CEAF" name="PUBLICACION PK">
+<createdBy>SERGIO</createdBy>
+<createdTime>2018-12-26 04:56:39 UTC</createdTime>
+<ownerDesignName>diagrama</ownerDesignName>
+<engineerTo>
+<item key="CDC8B78E-02AA-0009-ABC3-BE6D0DE0E739" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>3E4C9927-B2F0-C5A9-13EB-BAAA7664B83B</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
