@@ -1,0 +1,62 @@
+doctype html
+html(lang="es")
+	head
+		title VRIN UNPRG
+		include includes/head
+	body
+
+		//Menú Mobile
+		include includes/mobile-menu
+
+		.row.premenu
+			include includes/pre-menu			
+		//Menú
+		header.navbar
+			include includes/menu
+
+		include includes/slider3
+		//Cuerpo
+		.row.cuerpo
+			.col.s12.l9
+				.row.titulo
+					h4.center OFICINA GENERAL EDITORIAL UNIVERSITARIA
+				.row.noticia.card
+					.col.s5
+						img(src="../img/portada4.jpg")
+					.col.s7
+						h5 Titulo de noticia
+						p Descripción corta de noticia
+						p Descripción corta de noticia
+						p Descripción corta de noticia
+						a(href="noticia.html")
+							button.btn.right VER NOTICIA
+								i.material-icons.right input
+				.row.noticia.card
+					.col.s5
+						img(src="../img/portada5.jpg")
+					.col.s7
+						h5 Titulo de noticia
+						p Descripción corta de noticia
+						p Descripción corta de noticia
+						p Descripción corta de noticia
+						a(href="noticia.html")
+							button.btn.right VER NOTICIA
+								i.material-icons.right input
+				.row.noticia.card
+					.col.s5
+						img(src="../img/portada6.jpg")
+					.col.s7
+						h5 Titulo de noticia
+						p Descripción corta de noticia
+						p Descripción corta de noticia
+						p Descripción corta de noticia
+						a(href="noticia.html")
+							button.btn.right VER NOTICIA
+								i.material-icons.right input
+
+			.col.s12.l3
+				include includes/fb-lateral
+			
+		
+		footer
+			include includes/footer

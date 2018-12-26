@@ -1,0 +1,56 @@
+doctype html
+html(lang="es")
+	head
+		title VRIN UNPRG
+		include includes/head
+	body
+
+		//Menú Mobile
+		include includes/mobile-menu
+
+		.row.premenu
+			include includes/pre-menu			
+		//Menú
+		header.navbar
+			include includes/menu
+
+		include includes/slider
+		//Cuerpo
+		.row.cuerpo
+			.col.s12.l9
+				.row.titulo
+					h4.center DOCUMENTOS
+				.row.noticia.card
+					.col.s12
+						h5 MOF - VRINV
+						p Descripción corta del documento
+						a(target="_blank" href="../documentos/doc1.pdf")
+							button.btn.right VER DOCUMENTO
+								i.material-icons.right input
+				.row.noticia.card
+					.col.s12
+						h5 Nombre del documento
+						p Descripción corta del documento
+						a()
+							button.btn.right VER DOCUMENTO
+								i.material-icons.right input
+				.row.noticia.card
+					.col.s12
+						h5 Nombre del documento
+						p Descripción corta del documento
+						a()
+							button.btn.right VER DOCUMENTO
+								i.material-icons.right input
+				.row.noticia.card
+					.col.s12
+						h5 Nombre del documento
+						p Descripción corta del documento
+						a()
+							button.btn.right VER DOCUMENTO
+								i.material-icons.right input
+			.col.s12.l3
+				include includes/fb-lateral
+			
+		
+		footer
+			include includes/footer

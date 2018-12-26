@@ -17,7 +17,8 @@ $( document ).ready(function(){
   });
   $('.slider').slider({
     full_width: true,
-    indicators: true
+    indicators: true,
+    height: 550
   });
 	$('select').material_select();
   	$('#textarea1').trigger('autoresize');
