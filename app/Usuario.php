@@ -11,17 +11,8 @@ class Usuario extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
     
-    public function completo(){
-    	return $this->paterno.' '.$this->materno.' '.$this->nombres;
-    }
 
-    public function facultad(){
-    	if($this->id_facultad>0){
-    		return Facultad::find($this->id_facultad);
-    	}else{
-    		$facultad = new Facultad();
-    		$facultad->nombre = "-";
-    		return $facultad;
-    	}
+    public function oficina(){
+    	return Oficina::find($this->id_oficina);
     }
 }

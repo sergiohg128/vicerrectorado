@@ -14,6 +14,8 @@ create table publicacion(
 	imagen text,
 	archivo text,
 	estado character default 'N',
+	fecha timestamp without time zone default now(),
+	vistas integer default 0,
 	id_oficina integer,
 	constraint pk_publicacion primary key (id)
 );
@@ -28,4 +30,13 @@ create table slider(
 	estado character default 'N',
 	id_oficina integer,
 	constraint pk_slider primary key (id)
+);
+
+create table usuario(
+	id serial,
+	usuario text,
+	password text,
+	id_oficina integer,
+	estado character default 'N',
+	constraint pk_usuario primary key (id)
 );

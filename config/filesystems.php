@@ -55,9 +55,9 @@ return [
             'visibility' => 'public',
         ],
 
-        'entrega' => [
+        'publicacion' => [
             'driver' => 'local',
-            'root' => storage_path('app/entrega'),
+            'root' => public_path('oficinas'),
             'visibility' => 'public',
         ],
 
