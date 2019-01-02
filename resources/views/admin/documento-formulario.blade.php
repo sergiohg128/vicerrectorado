@@ -27,7 +27,7 @@
 			            <div class="file-field input-field">
 					      <div class="btn">
 					        <span>Archivo</span>
-					        <input type="file" name="archi" @if($modo=="nuevo")  required="true" @endif>
+					        <input type="file" name="arch" @if($modo=="nuevo")  required="true" @endif>
 					      </div>
 					      <div class="file-path-wrapper">
 					        <input class="file-path validate" type="text" name="archiv">

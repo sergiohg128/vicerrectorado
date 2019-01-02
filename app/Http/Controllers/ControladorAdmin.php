@@ -258,7 +258,7 @@ class ControladorAdmin extends Controller
             $modo = $request->input("modo");
             $tipo = $request->input("tipo");
             $imagen = $request->file("imagen");
-            $archivo = $request->file("archi");
+            $archivo = $request->file("arch");
 
             DB::beginTransaction();
             try{
