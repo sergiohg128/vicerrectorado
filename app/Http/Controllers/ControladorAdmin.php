@@ -12,6 +12,7 @@ use App\Oficina;
 use App\Publicacion;
 use App\Slider;
 use App\Usuario;
+use App\Menu;
 
 class ControladorAdmin extends Controller
 {
@@ -81,6 +82,23 @@ class ControladorAdmin extends Controller
             return view('/admin/inicio',[
                 'usuario'=>$usuario,
                 'mensaje'=>$mensaje,
+                'w'=>0
+            ]);
+        }else{
+            return redirect("/index");
+        }
+    }
+
+    public function Pestañas(Request $request,  Response $response) {
+        $usuario = $request->session()->get('usuario');
+        if($this->ComprobarUsuario($usuario)){
+            $mensaje = $request->session()->get('mensaje');
+            $request->session()->forget('mensaje');
+            $pestañas = Menu::where("id_oficina",$usuario->id_oficina)->orderBy("id","desc")->get();
+            return view('/admin/pestañas',[
+                'usuario'=>$usuario,
+                'mensaje'=>$mensaje,
+                'pestañas'=>$pestañas,
                 'w'=>0
             ]);
         }else{
