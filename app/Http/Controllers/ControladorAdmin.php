@@ -89,20 +89,78 @@ class ControladorAdmin extends Controller
         }
     }
 
-    public function Pestañas(Request $request,  Response $response) {
+    public function Menus(Request $request,  Response $response) {
         $usuario = $request->session()->get('usuario');
         if($this->ComprobarUsuario($usuario)){
             $mensaje = $request->session()->get('mensaje');
             $request->session()->forget('mensaje');
-            $pestañas = Menu::where("id_oficina",$usuario->id_oficina)->orderBy("id","desc")->get();
-            return view('/admin/pestañas',[
+            $menus = Menu::where("id_oficina",$usuario->id_oficina)->orderBy("orden")->get();
+            return view('/admin/menus',[
                 'usuario'=>$usuario,
                 'mensaje'=>$mensaje,
-                'pestañas'=>$pestañas,
+                'menus'=>$menus,
                 'w'=>0
             ]);
         }else{
             return redirect("/index");
+        }
+    }
+
+    public function MenuFormulario(Request $request,  Response $response) {
+        $usuario = $request->session()->get('usuario');
+        if($this->ComprobarUsuario($usuario)){
+            $mensaje = $request->session()->get('mensaje');
+            $request->session()->forget('mensaje');
+            $id = $request->input("id");
+            $menu = new Menu();
+            $modo = "nuevo";
+            if($id>0){
+                $modo = "editar";
+                $menu = Menu::find($id);
+            }
+            return view('/admin/menu-formulario',[
+                'usuario'=>$usuario,
+                'mensaje'=>$mensaje,
+                'menu'=>$menu,
+                'modo'=>$modo,
+                'w'=>0
+            ]);
+        }else{
+            return redirect("/index");
+        }
+    }
+
+    public function MenuFormularioPost(Request $request,  Response $response) {
+        $usuario = $request->session()->get('usuario');
+        if($this->ComprobarUsuario($usuario)){
+            $modo = $request->input("modo");
+            $nombre = $request->input("nombre");
+            $orden = $request->input("orden");
+            $descripcion = $request->input("descripcion");
+            $id = $request->input("menu");
+
+            DB::beginTransaction();
+            try{
+                $menu = new Menu();
+                if($modo=="editar"){
+                    $menu = Menu::find($id);
+                }
+
+                $menu->nombre = $nombre;
+                $menu->orden = $orden;
+                $menu->descripcion = $descripcion;
+                $menu->id_oficina = $usuario->id_oficina;
+                $menu->save();
+
+                DB::commit();
+
+                return redirect("/admin/menus");
+            }
+            catch (Exception $ex) {
+                return redirect("/admin/index");
+            }
+        }else{
+            return redirect("/admin/index");
         }
     }
 

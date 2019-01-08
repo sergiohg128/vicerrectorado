@@ -46,6 +46,7 @@ create table menu(
 	nombre text,
 	descripcion text,
 	id_oficina integer,
+	orden integer,
 	estado character default 'N',
 	constraint pk_menu primary key (id)
 );
