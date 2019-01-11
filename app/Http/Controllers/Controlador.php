@@ -12,6 +12,7 @@ use App\Oficina;
 use App\Publicacion;
 use App\Slider;
 use App\Usuario;
+use App\Menu;
 
 class Controlador extends Controller
 {
@@ -121,12 +122,27 @@ class Controlador extends Controller
         $slides = Slider::where("id_oficina",$oficina->id)->where("estado","N")->get();
         $oficinas = Oficina::where("id",">",1)->where("estado","N")->orderBy("nombre")->get();
         $publicaciones = Publicacion::where("id_oficina",$oficina->id)->where("estado","N")->where("tipo",1)->get();
+        $menus = Menu::where("id_oficina",$oficina->id)->orderBy("orden")->get();
+        $idmenu = $request->input("m");
+        if($idmenu>0){
+            $descripcion = Menu::find($idmenu)->descripcion;
+        }else{
+            $menu = Menu::where("id_oficina",$oficina->id)->orderBy("orden")->first();
+            if(!empty($menu)){
+                $descripcion = $menu->descripcion;
+            }else{
+                $descripcion = "";
+            }
+        }
         return view('oficina',[
             'mensaje'=>$mensaje,
             'slides'=>$slides,
             'oficina'=>$oficina,
             'oficinas'=>$oficinas,
-            'publicaciones'=>$publicaciones
+            'publicaciones'=>$publicaciones,
+            'menus'=>$menus,
+            'descripcion'=>$descripcion,
+            'idmenu'=>$idmenu
         ]);
     }
     

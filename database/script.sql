@@ -40,3 +40,13 @@ create table usuario(
 	estado character default 'N',
 	constraint pk_usuario primary key (id)
 );
+
+create table menu(
+	id serial,
+	nombre text,
+	descripcion text,
+	id_oficina integer,
+	orden integer,
+	estado character default 'N',
+	constraint pk_menu primary key (id)
+);

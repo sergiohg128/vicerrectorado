@@ -28,6 +28,10 @@ Route::post('/admin/login','ControladorAdmin@login');
 Route::get('/admin/logout','ControladorAdmin@logout');
 Route::get('/admin/inicio','ControladorAdmin@inicio');
 
+Route::get('/admin/menus','ControladorAdmin@menus');
+Route::get('/admin/menu-formulario','ControladorAdmin@menuformulario');
+Route::post('/admin/menu-formulario','ControladorAdmin@menuformularioPost');
+
 Route::get('/admin/noticias','ControladorAdmin@noticias');
 Route::get('/admin/noticia-formulario','ControladorAdmin@noticiaformulario');
 Route::get('/admin/pasantias','ControladorAdmin@pasantias');

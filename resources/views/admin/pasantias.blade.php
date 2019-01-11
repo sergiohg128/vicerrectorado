@@ -32,7 +32,7 @@
                      </tr>
                  @empty
                      <tr id="filaempty">
-                         <td colspan="6">No hay noticias</td>
+                         <td colspan="6">No hay pasantias</td>
                      </tr>
                  @endforelse
                </tbody>
