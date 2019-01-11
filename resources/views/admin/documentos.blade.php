@@ -16,6 +16,7 @@
                  <th>N</th>
                  <th>Titulo</th>
                  <th>Descripcion</th>
+                 <th>Vistas</th>
                  <th>Fecha</th>
                  <th>Editar</th>	
                </thead>
@@ -25,12 +26,13 @@
                        <td>{{$w = $w + 1}}</td>
                        <td>{{$publicacion->titulo}}</td>
                        <td>{{$publicacion->corta}}</td>
+                       <td>{{$publicacion->vistas}}</td>
                        <td>{{date('d/m/Y',strtotime($publicacion->fecha))}}</td>
                        <td><a href="documento-formulario?id={{$publicacion->id}}" class="btn green"><i class="material-icons">edit</i></a></td>
                      </tr>
                  @empty
                      <tr id="filaempty">
-                         <td colspan="6">No hay documentos</td>
+                         <td colspan="6">No hay noticias</td>
                      </tr>
                  @endforelse
                </tbody>

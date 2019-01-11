@@ -24,6 +24,7 @@
 			            <textarea class="materialize-textarea" name="corta" id="corta" required="true">{{$publicacion->corta}}</textarea>
 		            </div>
 		             <div class="col s12 input-field">
+			            <label for="fecha">Descripcion Larga</label>
 			            <textarea class="materialize-textarea" name="larga" id="larga" required="true">{{$publicacion->larga}}</textarea>     		
 		            </div>
 		            <div class="col s12">
@@ -37,6 +38,17 @@
 					      </div>
 					    </div>     		
 		            </div>
+		            <div class="col s12">
+			            <div class="file-field input-field">
+					      <div class="btn">
+					        <span>Archivo</span>
+					        <input type="file" name="arch" @if($modo=="nuevo")  required="true" @endif>
+					      </div>
+					      <div class="file-path-wrapper">
+					        <input class="file-path validate" type="text" name="archiv">
+					      </div>
+					    </div>     		
+		            </div>
 	        	</div>
 	            <div class="row center">
 	            	<div class="col s12">
@@ -46,15 +58,6 @@
         	</form>
         </div>
     </div>
-    <script>
-    	$("#larga").cleditor(
-      {
-        height: 500,
-        styles:     [["Párrafo", "<p>"], ["Encabezado 1", "<h1>"], ["Encabezado 2", "<h2>"],
-                    ["Encabezado 3", "<h3>"],  ["Encabezado 4","<h4>"],  ["Encabezado 5","<h5>"],
-                    ["Encabezado 6","<h6>"]],
-      }).focus();
-    </script>
     @include('include.footer')
   </body>
 </html>

@@ -205,22 +205,3 @@ body {
 .footer-copyright{
 	padding: 10px 0;
 }
-
-.cuerpo{
-	&.oficina{
-		.titulo{
-			margin-bottom: 0;
-		}
-		.collec{
-			padding: 0;
-		}
-		.collection{
-			padding: 0;
-			margin: 0;
-		}
-	}
-}
-
-.descripcion{
-	min-height: 80vh !important;
-}

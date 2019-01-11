@@ -20,16 +20,8 @@
 			            <input type="text" name="titulo" required id="titulo" value="{{$publicacion->titulo}}" required="true">
 		            </div>
 		            <div class="col s12 input-field">
-			            <label for="corta">Descripcion Corta</label>
+			            <label for="fecha">Descripcion Corta</label>
 			            <textarea class="materialize-textarea" name="corta" id="corta" required="true">{{$publicacion->corta}}</textarea>
-		            </div>
-		            <div class="col s12 input-field">
-			            <select name="tipodocumento" id="tipodocumento">
-			            	@foreach($tipos as $tipo)
-			            		<option value="{{$tipo->id}}" @if($tipo->id==$publicacion->id_tipodocumento) selected @endif>{{$tipo->nombre}}</option>
-			            	@endforeach
-			            </select>
-			            <label for="tipodocumento">Tipo</label>
 		            </div>
 		            <div class="col s12">
 			            <div class="file-field input-field">

@@ -18,7 +18,7 @@
             </div>
           </div>
           <div class="row">
-            <p>{!!$publicacion->larga!!}</p>
+            <p>{{$publicacion->larga}}</p>
           </div>
         </div>
       </div>

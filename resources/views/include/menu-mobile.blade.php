@@ -13,10 +13,10 @@
       <li>
         <div class="collapsible-header waves-effect" href="oficinas">PROYECTOS</div>
         <div class="collapsible-body waves-effect">
-          @foreach($tiposgrupo as $tipogrupo)
-            <li><a href="proyectos?t={{$tipogrupo->id}}">{{$tipogrupo->nombre}}</a></li>
-          @endforeach
-          
+          <li><a href="proyectos">Docentes</a></li>
+          <li><a href="proyectos">Semilleros de Investigación</a></li>
+          <li><a href="proyectos">Grupos de Investigaciòn VRINV</a></li>
+          <li><a href="proyectos">Investigaciones Regina</a></li>
         </div>
       </li>
       <div class="divider"></div>
