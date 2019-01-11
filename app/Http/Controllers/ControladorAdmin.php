@@ -13,6 +13,7 @@ use App\Publicacion;
 use App\Slider;
 use App\Usuario;
 use App\Menu;
+use App\TipoDocumento;
 
 class ControladorAdmin extends Controller
 {
@@ -169,7 +170,7 @@ class ControladorAdmin extends Controller
         if($this->ComprobarUsuario($usuario)){
             $mensaje = $request->session()->get('mensaje');
             $request->session()->forget('mensaje');
-            $publicaciones = Publicacion::where("tipo",1)->where("id_oficina",$usuario->id_oficina)->orderBy("id")->get();
+            $publicaciones = Publicacion::where("tipo",1)->where("id_oficina",$usuario->id_oficina)->orderBy("id","desc")->get();
             return view('/admin/noticias',[
                 'usuario'=>$usuario,
                 'mensaje'=>$mensaje,
@@ -186,7 +187,7 @@ class ControladorAdmin extends Controller
         if($this->ComprobarUsuario($usuario)){
             $mensaje = $request->session()->get('mensaje');
             $request->session()->forget('mensaje');
-            $publicaciones = Publicacion::where("tipo",2)->where("id_oficina",$usuario->id_oficina)->orderBy("id")->get();
+            $publicaciones = Publicacion::where("tipo",2)->where("id_oficina",$usuario->id_oficina)->orderBy("id","desc")->get();
             return view('/admin/pasantias',[
                 'usuario'=>$usuario,
                 'mensaje'=>$mensaje,
@@ -203,7 +204,7 @@ class ControladorAdmin extends Controller
         if($this->ComprobarUsuario($usuario)){
             $mensaje = $request->session()->get('mensaje');
             $request->session()->forget('mensaje');
-            $publicaciones = Publicacion::where("tipo",3)->where("id_oficina",$usuario->id_oficina)->orderBy("id")->get();
+            $publicaciones = Publicacion::where("tipo",3)->where("id_oficina",$usuario->id_oficina)->orderBy("id","desc")->get();
             return view('/admin/financiamientos',[
                 'usuario'=>$usuario,
                 'mensaje'=>$mensaje,
@@ -220,7 +221,7 @@ class ControladorAdmin extends Controller
         if($this->ComprobarUsuario($usuario)){
             $mensaje = $request->session()->get('mensaje');
             $request->session()->forget('mensaje');
-            $publicaciones = Publicacion::where("tipo",4)->where("id_oficina",$usuario->id_oficina)->orderBy("id")->get();
+            $publicaciones = Publicacion::where("tipo",4)->where("id_oficina",$usuario->id_oficina)->orderBy("id","desc")->get();
             return view('/admin/documentos',[
                 'usuario'=>$usuario,
                 'mensaje'=>$mensaje,
@@ -311,6 +312,7 @@ class ControladorAdmin extends Controller
             $request->session()->forget('mensaje');
             $id = $request->input("id");
             $publicacion = new Publicacion();
+            $tipos = TipoDocumento::where("estado","N")->get();
             $modo = "nuevo";
             if($id>0){
                 $modo = "editar";
@@ -321,6 +323,7 @@ class ControladorAdmin extends Controller
                 'mensaje'=>$mensaje,
                 'publicacion'=>$publicacion,
                 'modo'=>$modo,
+                'tipos'=>$tipos,
                 'w'=>0
             ]);
         }else{
@@ -333,9 +336,9 @@ class ControladorAdmin extends Controller
         if($this->ComprobarUsuario($usuario)){
             $modo = $request->input("modo");
             $tipo = $request->input("tipo");
-            $imagen = $request->file("imagen");
+            $imagen = $request->file("imagen2");
             $archivo = $request->file("arch");
-
+            $tipodocumento = $request->input("tipodocumento");
             DB::beginTransaction();
             try{
 	            $publicacion = new Publicacion();
@@ -348,6 +351,10 @@ class ControladorAdmin extends Controller
 	            $publicacion->larga = $request->input("larga");
 	            $publicacion->tipo = $request->input("tipo");
 	            $publicacion->id_oficina = $usuario->id_oficina;
+
+                if($tipodocumento>0){
+                    $publicacion->id_tipodocumento = $tipodocumento;
+                }
 	            $publicacion->save();
 
 	            if($imagen!=null){

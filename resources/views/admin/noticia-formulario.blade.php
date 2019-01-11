@@ -30,7 +30,7 @@
 			            <div class="file-field input-field">
 					      <div class="btn">
 					        <span>Imagen</span>
-					        <input type="file" name="imagen" @if($modo=="nuevo")  required="true" @endif>
+					        <input type="file" name="imagen2" @if($modo=="nuevo")  required="true" @endif>
 					      </div>
 					      <div class="file-path-wrapper">
 					        <input class="file-path validate" type="text" name="arch2">

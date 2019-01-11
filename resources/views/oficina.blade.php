@@ -13,7 +13,7 @@
         <div class="col s3 collec">
           <div class="collection">
             @foreach($menus as $menu)
-              <a href="oficina?id=7&m={{$menu->id}}" class="collection-item @if($menu->id==$idmenu) active @endif">{{$menu->nombre}}</a>
+              <a href="oficina?id={{$menu->id_oficina}}&m={{$menu->id}}" class="collection-item @if($menu->id==$idmenu) active @endif">{{$menu->nombre}}</a>
             @endforeach
           </div>
         </div>

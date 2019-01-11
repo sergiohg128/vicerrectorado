@@ -1,7 +1,7 @@
 <ul class="collapsible side-nav" id="mobile-menu" data-collapsible="accordion">
-      <li><a class="collapsible-header waves-effect" href="noticias">NOTICIAS</a></li>
-      <div class="divider"></div>
       @if($usuario->id_oficina=="1")
+            <li><a class="collapsible-header waves-effect" href="noticias">NOTICIAS</a></li>
+            <div class="divider"></div>
             <li><a class="collapsible-header waves-effect" href="pasantias">PASANTIAS</a></li>
             <div class="divider"></div>
             <li><a class="collapsible-header waves-effect" href="financiamiento">FINANCIAMIENTO</a></li>

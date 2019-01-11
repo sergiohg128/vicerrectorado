@@ -17,6 +17,7 @@ create table publicacion(
 	fecha timestamp without time zone default now(),
 	vistas integer default 0,
 	id_oficina integer,
+	id_tipodocumento integer,
 	constraint pk_publicacion primary key (id)
 );
 
@@ -49,4 +50,12 @@ create table menu(
 	orden integer,
 	estado character default 'N',
 	constraint pk_menu primary key (id)
+);
+
+
+create table tipodocumento(
+	id serial,
+	nombre text,
+	estado character default 'N',
+	constraint pk_tipodocumento primary key (id)
 );

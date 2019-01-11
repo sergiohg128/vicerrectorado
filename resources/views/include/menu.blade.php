@@ -17,9 +17,8 @@
         @endforeach
       </ul>
       <ul class="dropdown-content" id="proyectos">
-        <li><a href="proyectos">Docentes</a></li>
-        <li><a href="proyectos">Semilleros de Investigación</a></li>
-        <li><a href="proyectos">Grupos de Investigaciòn VRINV</a></li>
-        <li><a href="proyectos">Investigaciones Regina</a></li>
+        @foreach($tiposgrupo as $tipogrupo)
+          <li><a href="proyectos?t={{$tipogrupo->id}}">{{$tipogrupo->nombre}}</a></li>
+        @endforeach
       </ul>
     </header>

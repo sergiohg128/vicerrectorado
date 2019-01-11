@@ -18,6 +18,9 @@ Route::get('/financiamientos','Controlador@financiamientos');
 Route::get('/docs','Controlador@docs');
 Route::get('/publicacion','Controlador@publicacion');
 
+Route::get('/proyectos','Controlador@proyectos');
+Route::get('/proyecto','Controlador@proyecto');
+
 Route::get('/admin', function (){
     return redirect("/admin/");
 });
