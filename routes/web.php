@@ -18,6 +18,9 @@ Route::get('/financiamientos','Controlador@financiamientos');
 Route::get('/docs','Controlador@docs');
 Route::get('/publicacion','Controlador@publicacion');
 
+Route::get('/proyectos','Controlador@proyectos');
+Route::get('/proyecto','Controlador@proyecto');
+
 Route::get('/admin', function (){
     return redirect("/admin/");
 });
@@ -27,6 +30,10 @@ Route::get('/admin/','ControladorAdmin@index');
 Route::post('/admin/login','ControladorAdmin@login');
 Route::get('/admin/logout','ControladorAdmin@logout');
 Route::get('/admin/inicio','ControladorAdmin@inicio');
+
+Route::get('/admin/menus','ControladorAdmin@menus');
+Route::get('/admin/menu-formulario','ControladorAdmin@menuformulario');
+Route::post('/admin/menu-formulario','ControladorAdmin@menuformularioPost');
 
 Route::get('/admin/noticias','ControladorAdmin@noticias');
 Route::get('/admin/noticia-formulario','ControladorAdmin@noticiaformulario');

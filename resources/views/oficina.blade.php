@@ -5,22 +5,21 @@
     @include('include.menu-mobile')
     @include('include.slider')
     <!--Cuerpo-->
-    <div class="row cuerpo">
+    <div class="row cuerpo oficina">
       <div class="col s12 l9">
         <div class="row titulo">
           <h4 class="center">{{$oficina->nombre}}</h4>
         </div>
-        @foreach($publicaciones as $publicacion)
-        <div class="row noticia card">
-          <div class="col s5"><img src="oficinas/{{$publicacion->id_oficina}}/publicaciones/{{$publicacion->id}}a.{{$publicacion->imagen}}"></div>
-          <div class="col s7">
-            <h5>{{$publicacion->titulo}}</h5>
-            <p>{{$publicacion->corta}}</p>
-            <a href="publicacion?id={{$publicacion->id}}">
-              <button class="btn right">VER NOTICIA<i class="material-icons right">input</i></button></a>
+        <div class="col s3 collec">
+          <div class="collection">
+            @foreach($menus as $menu)
+              <a href="oficina?id={{$menu->id_oficina}}&m={{$menu->id}}" class="collection-item @if($menu->id==$idmenu) active @endif">{{$menu->nombre}}</a>
+            @endforeach
           </div>
         </div>
-        @endforeach
+        <div class="col s9 card descripcion">
+          {!!$descripcion!!}
+        </div>
       </div>
       <div class="col s12 l3">
         <div class="fb-page" data-href="https://www.facebook.com/VRINV/" data-tabs="timeline" data-height="800" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
