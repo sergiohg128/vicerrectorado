@@ -52,3 +52,20 @@ td,th{
 		height: 100% !important;
 	}
 }
+
+.pagination{
+	text-align: center;
+
+	.page-item{
+		color: red;
+		&.active{
+			span{
+				color: white;
+				padding: 5px;
+				line-height: 1.5;
+				font-weight: bold;
+				font-size: 1.2em;
+			}
+		}
+	}
+}

@@ -43,17 +43,18 @@ class Controlador extends Controller
         $request->session()->forget('mensaje');
         $slides = Slider::where("id_oficina",1)->where("estado","N")->get();
         $oficinas = Oficina::where("id",">",1)->where("estado","N")->orderBy("nombre")->get();
-        $publicaciones = Publicacion::where("id_oficina",1)->where("estado","N")->where("tipo",1)->orderBy("id","desc")->get();
+        $publicaciones = Publicacion::where("id_oficina",1)->where("estado","N")->where("tipo",1)->orderBy("id","desc")->paginate(10);
         $oficina = Oficina::find(1);
-
         $tiposgrupo = TipoGrupoRecord::where("estado","N")->get();
+        $boletines = Publicacion::where("tipo",4)->where("id_tipodocumento",2)->where("estado","N")->orderBy("titulo","desc")->get();
         return view('index',[
             'mensaje'=>$mensaje,
             'slides'=>$slides,
             'oficina'=>$oficina,
             'oficinas'=>$oficinas,
             'publicaciones'=>$publicaciones,
-            'tiposgrupo'=>$tiposgrupo
+            'tiposgrupo'=>$tiposgrupo,
+            'boletines'=>$boletines
         ]);
     }
 
@@ -67,14 +68,17 @@ class Controlador extends Controller
         $oficina = Oficina::find(1);
         $tiposgrupo = TipoGrupoRecord::where("estado","N")->get();
         $tipo = $request->input("t");
-        $proyectos = ProyectoRecord::where("id_tipo_grupo",$tipo)->orderBy("id","desc")->get();
+        $proyectos = ProyectoRecord::where("id_tipo_grupo",$tipo)->orderBy("id","desc")->paginate(10);
+
+        $boletines = Publicacion::where("tipo",4)->where("id_tipodocumento",2)->where("estado","N")->orderBy("titulo","desc")->get();
         return view('proyectos',[
             'mensaje'=>$mensaje,
             'slides'=>$slides,
             'oficina'=>$oficina,
             'oficinas'=>$oficinas,
             'proyectos'=>$proyectos,
-            'tiposgrupo'=>$tiposgrupo
+            'tiposgrupo'=>$tiposgrupo,
+            'boletines'=>$boletines
         ]);
     }
 
@@ -89,13 +93,16 @@ class Controlador extends Controller
         $tiposgrupo = TipoGrupoRecord::where("estado","N")->get();
         $idproyecto = $request->input("id");
         $proyecto = ProyectoRecord::find($idproyecto);
+
+        $boletines = Publicacion::where("tipo",4)->where("id_tipodocumento",2)->where("estado","N")->orderBy("titulo","desc")->get();
         return view('proyecto',[
             'mensaje'=>$mensaje,
             'slides'=>$slides,
             'oficina'=>$oficina,
             'oficinas'=>$oficinas,
             'proyecto'=>$proyecto,
-            'tiposgrupo'=>$tiposgrupo
+            'tiposgrupo'=>$tiposgrupo,
+            'boletines'=>$boletines
         ]);
     }
 
@@ -114,6 +121,8 @@ class Controlador extends Controller
         $publicacion->save();
         $oficina = Oficina::find($publicacion->id_oficina);
         $tiposgrupo = TipoGrupoRecord::where("estado","N")->get();
+
+        $boletines = Publicacion::where("tipo",4)->where("id_tipodocumento",2)->where("estado","N")->orderBy("titulo","desc")->get();
         switch ($publicacion->tipo) {
             case 1:
                 return view('noticia',[
@@ -124,7 +133,8 @@ class Controlador extends Controller
                     'url_base'=>$url_base,
                     'url_base2'=>$url_base2,
                     'publicacion'=>$publicacion,
-                    'tiposgrupo'=>$tiposgrupo
+                    'tiposgrupo'=>$tiposgrupo,
+                    'boletines'=>$boletines
                 ]);
                 break;
             case 2:
@@ -136,7 +146,8 @@ class Controlador extends Controller
                     'url_base'=>$url_base,
                     'url_base2'=>$url_base2,
                     'publicacion'=>$publicacion,
-                    'tiposgrupo'=>$tiposgrupo
+                    'tiposgrupo'=>$tiposgrupo,
+                    'boletines'=>$boletines
                 ]);
                 break;
             case 3:
@@ -148,7 +159,8 @@ class Controlador extends Controller
                     'url_base'=>$url_base,
                     'url_base2'=>$url_base2,
                     'publicacion'=>$publicacion,
-            'tiposgrupo'=>$tiposgrupo
+                    'tiposgrupo'=>$tiposgrupo,
+                    'boletines'=>$boletines
                 ]);
                 break;
             case 4:
@@ -160,7 +172,8 @@ class Controlador extends Controller
                     'url_base'=>$url_base,
                     'url_base2'=>$url_base2,
                     'publicacion'=>$publicacion,
-            'tiposgrupo'=>$tiposgrupo
+                    'tiposgrupo'=>$tiposgrupo,
+                    'boletines'=>$boletines
                 ]);
                 break;
             default:
@@ -191,6 +204,8 @@ class Controlador extends Controller
             }
         }
         $tiposgrupo = TipoGrupoRecord::where("estado","N")->get();
+
+        $boletines = Publicacion::where("tipo",4)->where("id_tipodocumento",2)->where("estado","N")->orderBy("titulo","desc")->get();
         return view('oficina',[
             'mensaje'=>$mensaje,
             'slides'=>$slides,
@@ -200,7 +215,8 @@ class Controlador extends Controller
             'menus'=>$menus,
             'descripcion'=>$descripcion,
             'idmenu'=>$idmenu,
-            'tiposgrupo'=>$tiposgrupo
+            'tiposgrupo'=>$tiposgrupo,
+            'boletines'=>$boletines
         ]);
     }
     
@@ -210,15 +226,18 @@ class Controlador extends Controller
         $oficina = Oficina::find(1);
         $slides = Slider::where("id_oficina",$oficina->id)->where("estado","N")->get();
         $oficinas = Oficina::where("id",">",1)->where("estado","N")->orderBy("nombre")->get();
-        $publicaciones = Publicacion::where("tipo",2)->where("estado","N")->get();
+        $publicaciones = Publicacion::where("tipo",2)->where("estado","N")->paginate(10);
         $tiposgrupo = TipoGrupoRecord::where("estado","N")->get();
+
+        $boletines = Publicacion::where("tipo",4)->where("id_tipodocumento",2)->where("estado","N")->orderBy("titulo","desc")->get();
         return view('pasantias',[
             'mensaje'=>$mensaje,
             'slides'=>$slides,
             'oficina'=>$oficina,
             'oficinas'=>$oficinas,
             'publicaciones'=>$publicaciones,
-            'tiposgrupo'=>$tiposgrupo
+            'tiposgrupo'=>$tiposgrupo,
+            'boletines'=>$boletines
         ]);
     }
 
@@ -228,15 +247,18 @@ class Controlador extends Controller
         $oficina = Oficina::find(1);
         $slides = Slider::where("id_oficina",$oficina->id)->where("estado","N")->get();
         $oficinas = Oficina::where("id",">",1)->where("estado","N")->orderBy("nombre")->get();
-        $publicaciones = Publicacion::where("tipo",3)->where("estado","N")->get();
+        $publicaciones = Publicacion::where("tipo",3)->where("estado","N")->paginate(10);
         $tiposgrupo = TipoGrupoRecord::where("estado","N")->get();
+
+        $boletines = Publicacion::where("tipo",4)->where("id_tipodocumento",2)->where("estado","N")->orderBy("titulo","desc")->get();
         return view('financiamientos',[
             'mensaje'=>$mensaje,
             'slides'=>$slides,
             'oficina'=>$oficina,
             'oficinas'=>$oficinas,
             'publicaciones'=>$publicaciones,
-            'tiposgrupo'=>$tiposgrupo
+            'tiposgrupo'=>$tiposgrupo,
+            'boletines'=>$boletines
         ]);
     }
 
@@ -251,8 +273,10 @@ class Controlador extends Controller
         if(empty($idtipo)){
             $idtipo = TipoDocumento::where("estado","N")->orderBy("id")->first()->id;
         }
-        $publicaciones = Publicacion::where("tipo",4)->where("id_tipodocumento",$idtipo)->where("estado","N")->get();
+        $publicaciones = Publicacion::where("tipo",4)->where("id_tipodocumento",$idtipo)->where("estado","N")->paginate(10);
         $tiposgrupo = TipoGrupoRecord::where("estado","N")->get();
+
+        $boletines = Publicacion::where("tipo",4)->where("id_tipodocumento",2)->where("estado","N")->orderBy("titulo","desc")->get();
         return view('documentos',[
             'mensaje'=>$mensaje,
             'slides'=>$slides,
@@ -261,7 +285,8 @@ class Controlador extends Controller
             'publicaciones'=>$publicaciones,
             'tipos'=>$tipos,
             'idtipo'=>$idtipo,
-            'tiposgrupo'=>$tiposgrupo
+            'tiposgrupo'=>$tiposgrupo,
+            'boletines'=>$boletines
         ]);
     }
 

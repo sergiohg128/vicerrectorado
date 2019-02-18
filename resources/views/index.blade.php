@@ -21,6 +21,9 @@
           </div>
         </div>
         @endforeach
+        <div class="row center">
+          {{ $publicaciones->links() }}
+        </div>
       </div>
       <div class="col s12 l3">
         @include('include.fb_lateral')

@@ -26,6 +26,9 @@
           </div>
         </div>
         @endforeach
+        <div class="row center">
+          {{ $proyectos->links() }}
+        </div>
       </div>
       <div class="col s12 l3">
         @include('include.fb_lateral')

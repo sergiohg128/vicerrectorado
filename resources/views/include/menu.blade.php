@@ -9,6 +9,7 @@
           <li><a class="waves-effect" href="pasantias">PASANTIAS</a></li>
           <li><a class="waves-effect" href="financiamientos">FINANCIAMIENTOS</a></li>
           <li><a class="waves-effect" href="docs">DOCUMENTOS</a></li>
+          <li><a class="waves-effect dropdown-button" data-activates="boletines">BOLETINES<i class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
       </nav>
       <ul class="dropdown-content" id="oficinas">
@@ -19,6 +20,11 @@
       <ul class="dropdown-content" id="proyectos">
         @foreach($tiposgrupo as $tipogrupo)
           <li><a href="proyectos?t={{$tipogrupo->id}}">{{$tipogrupo->nombre}}</a></li>
+        @endforeach
+      </ul>
+      <ul class="dropdown-content" id="boletines">
+        @foreach($boletines as $boletin)
+          <li><a target="_blank" href="oficinas/{{$boletin->id_oficina}}/publicaciones/{{$boletin->id}}b.{{$boletin->archivo}}">{{$boletin->titulo}}</a></li>
         @endforeach
       </ul>
     </header>

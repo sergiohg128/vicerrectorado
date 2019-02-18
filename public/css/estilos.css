@@ -1636,6 +1636,17 @@ td, th {
     width: 100% !important;
     height: 100% !important; }
 
+.pagination {
+  text-align: center; }
+  .pagination .page-item {
+    color: red; }
+    .pagination .page-item.active span {
+      color: white;
+      padding: 5px;
+      line-height: 1.5;
+      font-weight: bold;
+      font-size: 1.2em; }
+
 .modal {
   width: 90%;
   max-height: 90%; }
