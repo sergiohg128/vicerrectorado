@@ -16,6 +16,7 @@ use App\Menu;
 use App\TipoDocumento;
 use App\ProyectoRecord;
 use App\TipoGrupoRecord;
+use App\UsuarioSelgestiun;
 
 class Controlador extends Controller
 {
@@ -68,7 +69,25 @@ class Controlador extends Controller
         $oficina = Oficina::find(1);
         $tiposgrupo = TipoGrupoRecord::where("estado","N")->get();
         $tipo = $request->input("t");
-        $proyectos = ProyectoRecord::where("id_tipo_grupo",$tipo)->orderBy("id","desc")->paginate(10);
+        $apellidos = $request->input("apellidos");
+        $ok = false;
+        if(!empty($apellidos)){
+            if(trim($apellidos)!=""){
+                $ok = true;
+            }
+        }
+        if($ok){
+            $usuario = new UsuarioSelgestiun();
+            $lista = $usuario->buscarApellidos($apellidos);
+
+            $proyectos = ProyectoRecord::select("proyecto.*")
+            ->join("investigador_proyecto","investigador_proyecto.id_proyecto","=","proyecto.id")
+            ->where("id_tipo_grupo",$tipo)
+            ->whereIn("investigador_proyecto.id_investigador",$lista)
+            ->orderBy("id","desc")->paginate(20);
+        }else{
+            $proyectos = ProyectoRecord::where("id_tipo_grupo",$tipo)->orderBy("id","desc")->paginate(20);
+        }
 
         $boletines = Publicacion::where("tipo",4)->where("id_tipodocumento",2)->where("estado","N")->orderBy("titulo","desc")->get();
         return view('proyectos',[
@@ -78,7 +97,9 @@ class Controlador extends Controller
             'oficinas'=>$oficinas,
             'proyectos'=>$proyectos,
             'tiposgrupo'=>$tiposgrupo,
-            'boletines'=>$boletines
+            'boletines'=>$boletines,
+            'tipo'=>$tipo,
+            'apellidos'=>$apellidos
         ]);
     }
 

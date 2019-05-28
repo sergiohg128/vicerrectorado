@@ -10,6 +10,16 @@
         <div class="row titulo">
           <h4 class="center">PROYECTOS</h4>
         </div>
+        <div class="row">
+          <form action="proyectos" method="GET">
+            <input type="hidden" name="t" value="{{$tipo}}">
+            <div class="col s11 input-field">
+                <input type="text" name="apellidos" id="apellidos" value="{{$apellidos}}">
+                <label for="apellidos">Buscar por apellidos</label>
+            </div>
+            <div class="col s1"><button type="submit" class="btn"><i class="material-icons">search</i></button></div>
+          </form>
+        </div>
         @foreach($proyectos as $proyecto)
         <div class="row noticia card">
           <div class="col s12">
@@ -27,7 +37,7 @@
         </div>
         @endforeach
         <div class="row center">
-          {{ $proyectos->links() }}
+          {{ $proyectos->appends(['t'=>$tipo,'apellidos'=>$apellidos])->links() }}
         </div>
       </div>
       <div class="col s12 l3">
