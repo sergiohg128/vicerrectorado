@@ -45,3 +45,7 @@ Route::get('/admin/documentos','ControladorAdmin@documentos');
 Route::get('/admin/documento-formulario','ControladorAdmin@documentoformulario');
 
 Route::post('/admin/publicacion-formulario','ControladorAdmin@publicacionformulario');
+
+
+Route::get('/admin/pass','ControladorAdmin@pass');
+Route::post('/admin/pass','ControladorAdmin@passPost');

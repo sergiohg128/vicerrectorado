@@ -6,7 +6,7 @@
     <!--Cuerpo-->
     <div class="row cuerpo-admin">
       <div class="row titulo center">
-        <h4>DOCUMENTOS</h4>
+        <h4 class="center">DOCUMENTOS</h4>
       </div>
         <div class="row">
             <a href="documento-formulario" class="btn-floating btn-large waves-effect red"><i class="material-icons">add</i></a>

@@ -11,7 +11,16 @@
           @else
             <li><a class="waves-effect" href="menus">PESTAÑAS</a></li>
           @endif
-          <li><a class="waves-effect" href="logout">SALIR</a></li>
+          <li>
+            <a data-activates="dropdown_cuenta" class="dropdown-button waves-effect">
+                CUENTA
+                <i class="material-icons right">arrow_drop_down</i>
+            </a>
+            <ul id="dropdown_cuenta" class="dropdown-content">
+                <li><a href="pass" class="waves-effect">CAMBIAR CONTRASEÑA</a></li>
+                <li><a href="logout" class="waves-effect">SALIR</a></li>
+            </ul>
+        </li>
         </ul>
       </nav>
     </header>

@@ -21,9 +21,7 @@
       </ul>
       <ul class="dropdown-content" id="proyectos">
         @foreach($tiposgrupo as $tipogrupo)
-          @if($tipogrupo->id>1)
           <li><a href="proyectos?t={{$tipogrupo->id}}">{{$tipogrupo->nombre}}</a></li>
-          @endif
         @endforeach
       </ul>
       <ul class="dropdown-content" id="boletines">

@@ -158,10 +158,10 @@ class ControladorAdmin extends Controller
                 return redirect("/admin/menus");
             }
             catch (Exception $ex) {
-                return redirect("/admin/index");
+                return redirect("/admin/inicio");
             }
         }else{
-            return redirect("/admin/index");
+            return redirect("/admin/inicio");
         }
     }
 
@@ -390,13 +390,52 @@ class ControladorAdmin extends Controller
                 }
             }
             catch (Exception $ex) {
-                return redirect("/admin/index");
+                return redirect("/admin/inicio");
             }
         }else{
-            return redirect("/admin/index");
+            return redirect("/admin/inicio");
         }
     }
     
+    public function Pass(Request $request,  Response $response) {
+        $usuario = $request->session()->get('usuario');
+        if($this->ComprobarUsuario($usuario)){
+            $mensaje = $request->session()->get('mensaje');
+            $request->session()->forget('mensaje');
+            return view('/admin/pass',[
+                'usuario'=>$usuario,
+                'mensaje'=>$mensaje,
+                'w'=>0
+            ]);
+        }else{
+            return redirect("/index");
+        }
+    }
+
+    public function PassPost(Request $request,  Response $response) {
+        
+        $pass = $request->input('pass');
+        $pass2 = $request->input('pass2');
+        $pass3 = $request->input('pass3');
+
+        $usuario = $request->session()->get('usuario');
+        if($pass==$usuario->password){
+            if($pass2==$pass3){
+                $usuario2 = Usuario::find($usuario->id);
+                $usuario2->password = $pass2;
+                $usuario2->save();
+                $request->session()->put('mensaje', "CONTASEÑA CAMBIADA CORRECTAMENTE");
+                $usuario = $request->session()->put('usuario',$usuario2);
+                return redirect("/admin/inicio");
+            }else{
+                $request->session()->put('mensaje', "LA NUEVA CONTASEÑA NO ES IGUAL A LA CONFIRMACIÓN");
+                return redirect("/admin/pass");
+            }
+        }else{
+            $request->session()->put('mensaje', "LA CONTRASEÑA ACTUAL ES INCORRECTA");
+            return redirect("/admin/pass");
+        }
+    }
 
 }
     
