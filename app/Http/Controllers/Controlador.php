@@ -128,8 +128,8 @@ class Controlador extends Controller
     }
 
     public function Publicacion(Request $request,  Response $response) {
-        $url_base = "http://209.97.182.163/";
-        $url_base2 = "http%3A%2F%2F209.97.182.163%2F";
+        $url_base = "http://vrinv.unprg.edu.pe/portal/public/";
+        $url_base2 = "http%3A%2F%2Fvrinv.unprg.edu.pe%2Fportal%2Fpublic%2F";
 
         $usuario = $request->session()->get('usuario');
         $mensaje = $request->session()->get('mensaje');
